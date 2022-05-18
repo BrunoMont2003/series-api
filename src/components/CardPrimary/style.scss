@@ -1,11 +1,35 @@
-figure {
-  min-width: 20rem;
-  min-height: 10rem;
-  padding: 40px;
-  img {
-    pointer-events: none;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0.5rem;
+@import 'node_modules/nord/src/sass/nord.scss';
+
+.card {
+  display: flex;
+  gap: 2.5rem;
+  position: relative;
+  border-radius: 0.3rem;
+  background-color: $nord0;
+  margin-left: 1.25rem /* 20px */;
+  margin-right: 1.25rem /* 20px */;
+  min-width: 50rem;
+  min-height: 420px;
+  @media (max-width: 576px) {
+    background-color: yellow !important;
+    min-width: 100%;
+  }
+  figure {
+    min-width: 20rem;
+    min-height: 420px;
+    border-radius: 0.3rem;
+    padding: 1rem;
+    overflow: hidden;
+    img {
+      top: -2rem;
+      left: 2rem;
+      border-radius: 0.3rem;
+      position: absolute;
+      pointer-events: none;
+      height: 420px;
+      max-width: 285px;
+      object-fit: cover;
+      object-position: top;
+    }
   }
 }
