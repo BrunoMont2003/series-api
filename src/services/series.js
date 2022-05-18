@@ -4,6 +4,18 @@ export const getShowByID = async (id) => {
   try {
     const URI = `https://api.tvmaze.com/shows/${id}`
     const { data } = await axios.get(URI)
+    const cast = await getCast(id)
+    data.cast = cast
+    return data
+  } catch (error) {
+    console.log(error.message)
+    return { sms: 'Something went wrong -> ' + error.message }
+  }
+}
+export const getCast = async (showId) => {
+  try {
+    const URI = `https://api.tvmaze.com/shows/${showId}/cast`
+    const { data } = await axios.get(URI)
     return data
   } catch (error) {
     console.log(error.message)

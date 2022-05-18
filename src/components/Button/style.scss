@@ -1,0 +1,18 @@
+@import 'node_modules/nord/src/sass/nord.scss';
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: $nord11;
+  min-width: 10rem;
+  height: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: $nord6;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+  border-radius: 3rem;
+}
