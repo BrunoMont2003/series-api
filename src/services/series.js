@@ -6,7 +6,7 @@ export const getShowByID = async (id) => {
     const { data } = await axios.get(URI)
     return data
   } catch (error) {
-    console.log(error)
+    console.log(error.message)
     return { sms: 'Something went wrong -> ' + error.message }
   }
 }
@@ -16,7 +16,7 @@ export const getShowByName = async (name) => {
     const { data } = await axios.get(URI)
     return data
   } catch (error) {
-    console.log(error)
+    console.log(error.message)
     return { sms: 'Something went wrong -> ' + error.message }
   }
 }
@@ -27,7 +27,7 @@ export const getShowsByQuestion = async (q) => {
     const { data } = await axios.get(URI)
     return data
   } catch (error) {
-    console.log(error)
+    console.log(error.message)
     return { sms: 'Something went wrong -> ' + error.message }
   }
 }
@@ -35,13 +35,13 @@ export const getShowsByQuestion = async (q) => {
 export const getManyShows = async (n = 20) => {
   try {
     const series = []
-    for (let i = 0; series.length < n; i++) {
+    for (let i = 1; series.length < n; i++) {
       const show = await getShowByID(i)
-      series.push(show)
+      !show.sms && series.push(show)
     }
     return series
   } catch (error) {
-    console.log(error)
+    console.log(error.message)
     return { sms: 'Something went wrong -> ' + error.message }
   }
 }
