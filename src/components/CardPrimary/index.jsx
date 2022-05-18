@@ -26,9 +26,9 @@ export const CardPrimary = ({
   return (
     <article className='card'>
       <figure>
-        <img src={image.original} alt='hola' />
+        <img src={image.original} alt={name} />
       </figure>
-      <div className='my-5 mr-10'>
+      <div className='my-5 mr-10 info'>
         <h2 className='font-bold text-xl'>{name}</h2>
         <ReactStars
           edit={false}
@@ -37,7 +37,7 @@ export const CardPrimary = ({
           activeColor='#EBCB8B'
         />
         <p className='text-justify my-5'>{truncateText(summary)}</p>
-        <ul className='border-y py-5 overflow-hidden flex'>
+        <ul className='border-y py-5 overflow-hidden sm:flex '>
           {sliceArray(cast).array.map(({ person: { image } }, index) => (
             <li key={index} className='p-0 cast-item'>
               <img src={image.original} alt={index} className='' />
