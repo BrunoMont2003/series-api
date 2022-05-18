@@ -1,0 +1,11 @@
+figure {
+  min-width: 20rem;
+  min-height: 10rem;
+  padding: 40px;
+  img {
+    pointer-events: none;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+}

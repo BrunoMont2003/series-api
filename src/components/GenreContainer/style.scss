@@ -1,0 +1,22 @@
+li {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  user-select: none;
+  padding: 1.5rem;
+}
+
+.underline {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #ffff;
+}
+
+li.selected {
+  border-bottom: 1px solid #ffff;
+}
