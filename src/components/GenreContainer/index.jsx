@@ -60,7 +60,7 @@ export const GenreContainer = () => {
     <>
       {selectedTab.shows && selectedTab.shows.length > 0
         ? (
-          <div className='container'>
+          <div className='container genre-container'>
             <nav className='genre-options'>
               <h5 className='section-title'>Recommended Shows</h5>
               <ul className=' flex justify-end gap-5 relative pb-1 border-opacity-25 border-slate-300  border-b '>

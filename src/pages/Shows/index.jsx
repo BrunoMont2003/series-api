@@ -1,7 +1,10 @@
 import React from 'react'
+import { Layout } from '../../components/Layout'
 
 export const Shows = () => {
   return (
-    <div>Shows</div>
+    <Layout>
+      <h1>Welcome to the Searcher</h1>
+    </Layout>
   )
 }

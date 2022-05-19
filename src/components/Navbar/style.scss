@@ -1,0 +1,12 @@
+@import 'node_modules/nord/src/sass/nord.scss';
+.logo {
+  filter: invert(1);
+}
+.my-nav {
+  .nav-item {
+    .active {
+      color: $nord7;
+      font-weight: 500;
+    }
+  }
+}

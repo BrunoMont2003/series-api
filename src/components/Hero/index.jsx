@@ -5,7 +5,6 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 export const Hero = () => {
   return (
     <section className='hero'>
-      <nav className='border w-full h-16 absolute'>nav</nav>
       <article className='hero__article'>
         <h1 className='hero__title'>This is TvMaze</h1>
         <h2 className='hero__subtitle'>Your personal tv guide</h2>
