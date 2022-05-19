@@ -14,7 +14,7 @@ export const App = () => {
   }, [])
 
   return (
-    <div className='min-h-screen w-screen flex justify-center items-center flex-col gap-5'>
+    <div className='min-h-screen flex justify-center items-center flex-col gap-5'>
       {recommendedShows.length > 0 && <Carousel shows={recommendedShows} />}
       <GenreContainer />
     </div>

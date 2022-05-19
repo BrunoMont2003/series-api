@@ -1,6 +1,9 @@
 import axios from 'axios'
 
+const notFoundSeries = [17, 113, 119, 121, 135, 173, 223, 264]
+
 export const getShowByID = async (id) => {
+  if (notFoundSeries.includes(id)) return
   try {
     const URI = `https://api.tvmaze.com/shows/${id}`
     const { data } = await axios.get(URI)
@@ -44,12 +47,26 @@ export const getShowsByQuestion = async (q) => {
   }
 }
 
-export const getManyShows = async (n = 20) => {
+export const getManyShows = async (n = 20, begin = 1) => {
   try {
     const series = []
-    for (let i = 1; series.length < n; i++) {
+    for (let i = begin; series.length < begin + n; i++) {
       const show = await getShowByID(i)
-      !show.sms && series.push(show)
+      show && series.push(show)
+    }
+    return series
+  } catch (error) {
+    console.log(error.message)
+    return { sms: 'Something went wrong -> ' + error.message }
+  }
+}
+
+export const getShowsByGenre = async (genre, n = 20, begin = 100) => {
+  try {
+    const series = []
+    for (let i = begin; series.length < n; i++) {
+      const show = await getShowByID(i)
+      show && show.genres.includes(genre) && series.push(show)
     }
     return series
   } catch (error) {
