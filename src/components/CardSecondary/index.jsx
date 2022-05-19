@@ -1,11 +1,16 @@
 import React from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import ReactStars from 'react-rating-stars-component'
 import './style.scss'
-export const CardSecondary = ({ show, clickCard, closeCard, selectedCard }) => {
+export const CardSecondary = ({ show }) => {
   return (
     <>
-      <motion.article layoutId={show.id} onClick={clickCard} className='target'>
+      <motion.article
+        layoutId={show.id} className='target'
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 1.1 }}
+
+      >
         <figure>
           <motion.img src={show.image.original} />
         </figure>
@@ -20,16 +25,6 @@ export const CardSecondary = ({ show, clickCard, closeCard, selectedCard }) => {
           />
         </div>
       </motion.article>
-      <AnimatePresence>
-        {selectedCard && (
-          <motion.article layoutId={selectedCard.id} className='bg-black'>
-            <motion.h5>{selectedCard.subtitle}</motion.h5>
-            <motion.h2>{selectedCard.title}</motion.h2>
-            <motion.button onClick={closeCard} />
-          </motion.article>
-        )}
-      </AnimatePresence>
-
     </>
   )
 }

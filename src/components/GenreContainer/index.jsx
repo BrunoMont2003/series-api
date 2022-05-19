@@ -6,7 +6,7 @@ import { CardSecondary } from '../CardSecondary'
 
 const genres = [
   {
-    label: 'Drama',
+    label: 'Comedy',
     shows: []
   },
   {
@@ -26,7 +26,6 @@ const genres = [
 export const GenreContainer = () => {
   const [tabs, setTabs] = useState(genres)
   const [selectedTab, setSelectedTab] = useState({})
-  const [selectedCard, setSelectedCard] = useState(null)
   useEffect(() => {
     const fetchGen = async () => {
       for (const genre of genres) {
@@ -37,28 +36,33 @@ export const GenreContainer = () => {
       setTabs(genres)
     }
     fetchGen()
+    // responsive()
   }, [])
-  window.addEventListener('resize', (e) => {
-    const width = window.innerWidth
-    if (width <= 480) {
-      let data = genres
-      data = data.slice(0, 2)
-      setTabs(data)
-    } else if (width > 480 && width < 760) {
-      let data = genres
-      data = data.slice(0, 3)
-      setTabs(data)
-    } else {
-      const data = genres
-      setTabs(data)
-    }
-  })
+  // const responsive = () => {
+  //   const width = window.innerWidth
+  //   if (width <= 480) {
+  //     let data = genres
+  //     data = data.slice(0, 2)
+  //     setTabs(data)
+  //   } else if (width > 480 && width < 760) {
+  //     let data = genres
+  //     data = data.slice(0, 3)
+  //     setTabs(data)
+  //   } else {
+  //     const data = genres
+  //     setTabs(data)
+  //   }
+  // }
+  // window.addEventListener('resize', (e) => {
+  //   responsive()
+  // })
   return (
     <>
       {selectedTab.shows && selectedTab.shows.length > 0
         ? (
           <div className='container'>
-            <nav>
+            <nav className='genre-options'>
+              <h5 className='section-title'>Recommended Shows</h5>
               <ul className=' flex justify-end gap-5 relative pb-1 border-opacity-25 border-slate-300  border-b '>
                 {tabs.map((item) => (
                   <li
@@ -78,7 +82,7 @@ export const GenreContainer = () => {
                 ))}
               </ul>
             </nav>
-            <main className=''>
+            <main className='my-5 px-5'>
               <AnimatePresence exitBeforeEnter>
                 <motion.div
                   key={selectedTab ? selectedTab.label : 'empty'}
@@ -86,18 +90,13 @@ export const GenreContainer = () => {
                   initial={{ opacity: 0, y: 20 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.15 }}
-                  className='flex w-full justify-center flex-wrap gap-5 py-5'
+                  className='flex w-full justify-center sm:justify-between flex-wrap gap-5 py-5'
                 >
-                  {selectedTab.shows.length < 0 && <p>Loading ...</p>}
                   {selectedTab &&
                   selectedTab.shows.length > 0 &&
                   selectedTab.shows.map((show, index) => (
                     <CardSecondary
                       show={show} key={index}
-                      closeCard={() => setSelectedCard(null)}
-                      selectedCard={selectedCard} clickCard={
-                      () => setSelectedCard(show)
-                    }
                     />
                   ))}
                 </motion.div>

@@ -1,20 +1,30 @@
 @import 'node_modules/nord/src/sass/nord.scss';
-.target{
-    width: 12rem;
-    padding-bottom: 1rem;
-    border-radius: .2rem;
-    overflow: hidden;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    
-    figure{
-        width: 100%;
-        img{
-            height: 270px;
-            width: 100%;
-            object-fit: cover;
-        }
+.target {
+  cursor: pointer;
+  width: 12rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 0.2rem;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+  figure {
+    width: 100%;
+    img {
+      height: 270px;
+      width: 100%;
+      object-fit: cover;
     }
-    h2{
-        margin-top:1rem
+  }
+  h2 {
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 420px) {
+    width: 8rem;
+    figure img {
+      height: 150px;
     }
+  }
 }
