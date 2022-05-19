@@ -37,10 +37,10 @@ export const CardPrimary = ({
           activeColor='#EBCB8B'
         />
         <p className='text-justify my-5'>{truncateText(summary)}</p>
-        <ul className='border-y py-5 overflow-hidden sm:flex '>
+        <ul className='border-y py-5 overflow-hidden flex '>
           {sliceArray(cast).array.map(({ person: { image } }, index) => (
             <li key={index} className='p-0 cast-item'>
-              <img src={image.original} alt={index} className='' />
+              <img src={image.original} alt={index} />
             </li>
           ))}
           {sliceArray(cast).diff > 0 && (
@@ -51,7 +51,7 @@ export const CardPrimary = ({
             </li>
           )}
         </ul>
-        <div className='flex justify-end pt-5'>
+        <div className='flex justify-start md:justify-end pt-5'>
           <Button icon={faInfoCircle} text='See More' />
         </div>
       </div>
