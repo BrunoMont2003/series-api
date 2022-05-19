@@ -3,10 +3,12 @@ import './style.scss'
 import ReactStars from 'react-rating-stars-component'
 import { Button } from '../Button'
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from 'react-router-dom'
 
 export const CardPrimary = ({
-  show: { image, name, rating, summary, cast }
+  show: { image, name, rating, summary, cast, id }
 }) => {
+  const navigate = useNavigate()
   const truncateText = (text = '', maxLength = 200) => {
     // clean html tags
     text = text.replace(/<\/?[^>]+(>|$)/g, '')
@@ -52,7 +54,10 @@ export const CardPrimary = ({
           )}
         </ul>
         <div className='flex justify-start md:justify-end pt-5'>
-          <Button icon={faInfoCircle} text='See More' />
+          <Button
+            icon={faInfoCircle} text='See More'
+            onClick={() => navigate(`/shows/${id}`)}
+          />
         </div>
       </div>
     </article>

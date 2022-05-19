@@ -2,11 +2,14 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import ReactStars from 'react-rating-stars-component'
 import defaultImg from '../../assets/default.png'
+import { useNavigate } from 'react-router-dom'
 import './style.scss'
 export const CardSecondary = ({ show }) => {
+  const navigate = useNavigate()
   return (
     <>
       <motion.article
+        onClick={() => navigate(`/shows/${show.id}`)}
         layoutId={show.id} className='target'
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 1.1 }}
