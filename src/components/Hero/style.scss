@@ -31,10 +31,11 @@
     .hero__buttons {
       button {
         &:first-child {
-          background-color: black;
+          background-color: transparent;
+          border: 2px solid $nord8;
         }
         &:last-child {
-          background-color: black;
+          background-color: $nord10;
         }
       }
     }

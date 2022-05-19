@@ -10,6 +10,7 @@ export const Carousel = ({ shows = [] }) => {
   }, [])
   return (
     <section className='container'>
+      <h2 className='p-5 text-2xl font-bold'>Popular Shows</h2>
       <motion.div
         ref={carousel}
         className='carousel pt-10'
