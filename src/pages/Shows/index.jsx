@@ -25,6 +25,7 @@ export const Shows = () => {
           <SearchBar onChange={async (e) => await searchOnChange(e)} value={question} onSubmit={async (e) => { await searchOnSubmit(e) }} />
         </article>
         <article>
+          {showsFinded.length > 0 && question && <h5 className='text-2xl p-5'>Results for {question}</h5>}
           <div className=' flex container justify-center flex-wrap gap-5 py-5'>
             {
             showsFinded.length > 0 && showsFinded.map(({ show }, index) => <CardSecondary show={show} key={index} />)
