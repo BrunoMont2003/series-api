@@ -1,8 +1,9 @@
 import './style.scss'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { getShowsByGenre } from '../../services/series'
 import { CardSecondary } from '../CardSecondary'
+import { MyContext } from '../../context/MyContext'
 
 const genres = [
   {
@@ -25,7 +26,8 @@ const genres = [
 
 export const GenreContainer = () => {
   const [tabs, setTabs] = useState(genres)
-  const [selectedTab, setSelectedTab] = useState({})
+  const [selectedTab, setSelectedTab] = useState(genres[0])
+  const { tempGenres, setTempGenres } = useContext(MyContext)
   useEffect(() => {
     const fetchGen = async () => {
       for (const genre of genres) {
@@ -34,28 +36,11 @@ export const GenreContainer = () => {
       }
       setSelectedTab(genres[0])
       setTabs(genres)
+      setTempGenres(genres)
     }
-    fetchGen()
-    // responsive()
+    tempGenres[0].shows.length === 0 && fetchGen()
+    tempGenres[0].shows.length > 0 && setTabs(tempGenres)
   }, [])
-  // const responsive = () => {
-  //   const width = window.innerWidth
-  //   if (width <= 480) {
-  //     let data = genres
-  //     data = data.slice(0, 2)
-  //     setTabs(data)
-  //   } else if (width > 480 && width < 760) {
-  //     let data = genres
-  //     data = data.slice(0, 3)
-  //     setTabs(data)
-  //   } else {
-  //     const data = genres
-  //     setTabs(data)
-  //   }
-  // }
-  // window.addEventListener('resize', (e) => {
-  //   responsive()
-  // })
   return (
     <>
       {selectedTab.shows && selectedTab.shows.length > 0
