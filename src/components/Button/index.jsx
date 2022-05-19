@@ -3,15 +3,30 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import './style.scss'
 
-export const Button = ({ text, icon }) => {
+export const Button = ({ text, icon, to }) => {
   return (
-    <motion.button
-      whileHover={{ scale: 1.15 }}
-      whileTap={{ scale: 0.95 }}
-      className='btn'
-    >
-      {icon && <FontAwesomeIcon icon={icon} />}
-      {text}
-    </motion.button>
+    <>
+      {to
+        ? (
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 1.1 }}
+            className='btn'
+          >
+            {icon && <FontAwesomeIcon icon={icon} />}
+            {text}
+          </motion.a>
+          )
+        : (
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 1.1 }}
+            className='btn'
+          >
+            {icon && <FontAwesomeIcon icon={icon} />}
+            {text}
+          </motion.button>
+          )}
+    </>
   )
 }
