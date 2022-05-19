@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import ReactStars from 'react-rating-stars-component'
+import defaultImg from '../../assets/default.png'
 import './style.scss'
 export const CardSecondary = ({ show }) => {
   return (
@@ -12,7 +13,7 @@ export const CardSecondary = ({ show }) => {
 
       >
         <figure>
-          <motion.img src={show.image.original} />
+          <motion.img src={show.image ? show.image.original : defaultImg} />
         </figure>
         <div className='px-2'>
 

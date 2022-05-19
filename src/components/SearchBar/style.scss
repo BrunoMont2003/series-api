@@ -1,0 +1,15 @@
+@import 'node_modules/nord/src/sass/nord.scss';
+.searcher {
+  input {
+    width: 25rem;
+    height: 3rem;
+    &:focus {
+      outline: none;
+    }
+  }
+  button {
+    border-radius: 0.3rem;
+    background-color: $nord7;
+    color: $nord1;
+  }
+}
