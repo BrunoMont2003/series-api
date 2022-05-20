@@ -54,10 +54,10 @@ export const AboutShow = ({ show: { name, episodes, cast, rating, image, summary
           <p className='text-justify'>{truncateText(summary, 400)}</p>
 
         </article>
-        <article className='md:col-span-3 px-10 container mt-5'>
+        {/* <article className='md:col-span-3 px-10 container mt-5'>
           <h5 className='font-bold uppercase'>Episodes</h5>
 
-        </article>
+        </article> */}
       </section>
 
     </main>
