@@ -1,9 +1,9 @@
 import './style.scss'
-import React, { useEffect, useContext, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { getShowsByGenre } from '../../services/series'
 import { CardSecondary } from '../CardSecondary'
-import { MyContext } from '../../context/MyContext'
+import { useMyContext } from '../../context/MyContext'
 
 const genres = [
   {
@@ -27,7 +27,7 @@ const genres = [
 export const GenreContainer = () => {
   const [tabs, setTabs] = useState(genres)
   const [selectedTab, setSelectedTab] = useState(genres[0])
-  const { tempGenres, setTempGenres } = useContext(MyContext)
+  const { tempGenres, setTempGenres } = useMyContext()
   useEffect(() => {
     const fetchGen = async () => {
       for (const genre of genres) {

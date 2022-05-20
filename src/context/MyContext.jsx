@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import { useState, createContext, useContext } from 'react'
 
-export const MyContext = React.createContext({})
+export const MyContext = createContext({})
 export const MyContextProvider = ({ children }) => {
   const [recommendedShows, setRecommendedShows] = useState([])
   const [tempGenres, setTempGenres] = useState([{ shows: [] }])
@@ -10,4 +10,7 @@ export const MyContextProvider = ({ children }) => {
     >{children}
     </MyContext.Provider>
   )
+}
+export const useMyContext = () => {
+  return useContext(MyContext)
 }
